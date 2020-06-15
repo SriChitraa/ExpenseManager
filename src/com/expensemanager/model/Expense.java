@@ -2,41 +2,41 @@ package com.expensemanager.model;
 
 public class Expense {
 
-	private String Date;
-	private String Time;
-	private String Category;
-	private int Amount;
-	private String Content;
+	private String date;
+	private String time;
+	private String category;
+	private int amount;
+	private String content;
 
 	public String getDate() {
-		return Date;
+		return date;
 	}
 	public void setDate(String date) {
-		Date = date;
+		this.date = date;
 	}
 	public String getTime() {
-		return Time;
+		return time;
 	}
 	public void setTime(String time) {
-		Time = time;
+		this.time = time;
 	}
 	public String getCategory() {
-		return Category;
+		return category;
 	}
 	public void setCategory(String category) {
-		Category = category;
+		this.category = category;
 	}
 	public int getAmount() {
-		return Amount;
+		return amount;
 	}
 	public void setAmount(int amount) {
-		Amount = amount;
+		this.amount = amount;
 	}
 	public String getContent() {
-		return Content;
+		return content;
 	}
 	public void setContent(String content) {
-		Content = content;
+		this.content = content;
 	}
 	
 }

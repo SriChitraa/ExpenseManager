@@ -50,8 +50,8 @@ color: lightgray
 <body>
 
 <%
-if(session.getAttribute("UserName")!=null){
-session.setAttribute("UserName",null);
+if(session.getAttribute("username")!=null){
+session.setAttribute("username",null);
 }
 %>
 	<div class="container jumbotron" style="background-color: lightgrey">

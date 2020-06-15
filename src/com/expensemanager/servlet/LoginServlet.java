@@ -1,17 +1,14 @@
 package com.expensemanager.servlet;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.expensemanager.datastore.LoginDS;
 
 /**
  * Servlet implementation class LoginServlet
@@ -41,27 +38,21 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+
 		String uname = request.getParameter("username");
 		HttpSession session = request.getSession();
-		String Password = request.getParameter("password");
-try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/task", "root","root");
-			PreparedStatement ps =  connect.prepareStatement("select * from login where username = '"+uname+"';");
-			ResultSet rs = ps.executeQuery();
-			rs.next();
-			if(Password.equals(rs.getString("userpassword"))) {	
-				
+		String password = request.getParameter("password");
+		try {
+			LoginDS loginDS = new LoginDS();
+			boolean success = loginDS.isValid(uname, password);
+			if (success) {
 				session.setAttribute("username", uname);
 				response.sendRedirect("DashBoard.jsp");
-				
-		}else {
-			response.sendRedirect("login.jsp");
-		}
-			}catch (Exception e) {			
+			} else {
+				response.sendRedirect("login.jsp");
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 }
