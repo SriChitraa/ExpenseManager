@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 			boolean success = loginDS.isValid(uname, password);
 			if (success) {
 				session.setAttribute("username", uname);
-				response.sendRedirect("DashBoard.jsp");
+				response.sendRedirect("dashboard.jsp");
 			} else {
 				response.sendRedirect("login.jsp");
 			}
