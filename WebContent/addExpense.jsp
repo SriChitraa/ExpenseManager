@@ -9,7 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
-  <style>
+<style>
       .form-inline{
       margin: 0 auto;
       display: table;
@@ -21,16 +21,14 @@
       }
       
       
-      </style>
+</style>
+<%@ include file="header.jsp" %>
 </head>
 <body>
-	<div class="container jumbotron"
-		style="background-color: white; padding: 0px; margin: 0px; border: 0px">
+	<div class="container jumbotron" style="background-color: white; padding: 0px; margin: 0px; border: 0px">
 		<div class="row" style="background-color: white">
-			<div class="col-sm-offset-4 col-sm-4"
-				style="background-color: white; padding: 0px">
+			<div class="col-sm-offset-5 col-sm-5"style="background-color: white; padding: 0px">
 				<form class="form-inline" style="padding: 10px" name="form"	action="ExpensesServlet" method="post">
-					<p style="text-align: center">Expenses</p>
 					<div class="form-group">
 						<label class="control-label col-sm-6" style="text-align: left">Date:</label>
 						<div class="col-sm-6"><input type="date" class="form-control" style="width: 200px"	name="date" />
@@ -72,8 +70,13 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-offset-6 col-sm-6" style="text-align: left">
-							<input type="submit" class="btn btn-default" id="submit" name="submit" value="save" />
+						<div class="col-sm-offset-8 col-sm-8" style="text-align: left">
+							<input type="submit" class="btn btn-default" id="submit" name="submit" value="Save" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-8 col-sm-8" style="text-align: left">
+							<input type="submit" class="btn btn-default" id="reset" name="submit" value="Reset" />
 						</div>
 					</div>
 				</form>

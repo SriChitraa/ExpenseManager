@@ -17,6 +17,7 @@ width: 180px;
 border-radius: 40px;
 }
 </style>
+<%@ include file="header.jsp" %>
 <title>Dashboard</title>
 </head>
 <body>
