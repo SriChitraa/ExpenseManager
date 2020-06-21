@@ -7,15 +7,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.expensemanager.model.Expense;
+import com.expensemanager.model.User;
 
-public class ViewExpenseDS {
+public class ExpenseDS {
 	public ArrayList<Expense> viewExpense() {
 		ArrayList<Expense> expenses = new ArrayList<>();
+		User user = new User();
+		int id= user.getId();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/task", "root", "root");
 			Statement st = connect.createStatement();
-			st.executeQuery("select * from expenses order by Date DESC");
+			st.executeQuery("select * from expenses order by Date DESC where user_id='"+id+"';");
 			ResultSet rs = st.getResultSet();
 			while (rs.next()) {
 				Expense list = new Expense();

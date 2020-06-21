@@ -48,6 +48,8 @@
 									style="width: 200px" id="category">
 									<option>Select</option>
 									<option>Investment</option>
+									<option>HouseRent</option>
+									<option>Recreation</option>
 									<option>Food</option>
 									<option>Household</option>
 									<option>Education</option>

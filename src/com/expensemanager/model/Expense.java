@@ -6,6 +6,7 @@ public class Expense {
 	private String time;
 	private String category;
 	private int amount;
+	private int id;
 	private String content;
 
 	public String getDate() {
@@ -31,6 +32,12 @@ public class Expense {
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getContent() {
 		return content;
