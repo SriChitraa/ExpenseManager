@@ -50,22 +50,22 @@ public class LoginServlet extends HttpServlet {
 		String uname = request.getParameter("username");
 		HttpSession session = request.getSession();
 		String password = request.getParameter("password");
-		try {
+		
 			LoginDS loginDS = new LoginDS();
-			loginDS.getUser(uname, password);
-			User user = new User();
-			int id = user.getId();
+			User user =loginDS.getUser(uname);
+			int userId = user.getId();
 			String userPassword = user.getPassword();
+			session.setAttribute("user_id", userId);
 			if (password.equals(userPassword)) {
 
 				try {
 					ExpenseDS expense = new ExpenseDS();
-					ArrayList<Expense> expenses = expense.viewExpense();
+					ArrayList<Expense> expenses = expense.getExpense(userId);
 					ArrayList<ExpenseDTO> expenseDTOs = convertToDTO(expenses);
 					String dataPoints = new Gson().toJson(expenseDTOs);
-					System.out.print(dataPoints);
-					session.setAttribute("expenses", dataPoints);
-					response.sendRedirect("dashboard.jsp");
+					request.setAttribute("expenses", dataPoints);
+					request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
+			
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -73,10 +73,7 @@ public class LoginServlet extends HttpServlet {
 			} else {
 				response.sendRedirect("login.jsp");
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+		
 	}
 		
 

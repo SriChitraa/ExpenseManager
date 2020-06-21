@@ -95,7 +95,7 @@ System.out.println(details.get(1));
 <td>Content</td>
 </tr>
 <% 
-Object expense = session.getAttribute("expenses");
+Object expense = request.getAttribute("expenses");
 ArrayList<Expense> expenses = new ArrayList<Expense>();
 expenses = (ArrayList<Expense>)expense;
 for(Expense data:expenses) {

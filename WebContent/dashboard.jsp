@@ -8,24 +8,9 @@
 <html>
 <head>
 <% 
-Object expense = session.getAttribute("expenses");
-String dp = (String)expense;
-System.out.print(dp);
-%>
-<%
-Gson gsonObj = new Gson();
-Map<Object,Object> map = null;
-List<Map<Object,Object>> list = new ArrayList<Map<Object,Object>>();
- 
-map = new HashMap<Object,Object>(); map.put("category", "Health"); map.put("y", 35); list.add(map);
-map = new HashMap<Object,Object>(); map.put("category", "Finance"); map.put("y", 20); list.add(map);
-map = new HashMap<Object,Object>(); map.put("category", "Career"); map.put("y", 18); list.add(map);
-map = new HashMap<Object,Object>(); map.put("category", "Education"); map.put("y", 15); list.add(map);
-map = new HashMap<Object,Object>(); map.put("category", "Family"); map.put("y", 5); list.add(map);
-map = new HashMap<Object,Object>(); map.put("category", "Real Estate"); map.put("y", 7); list.add(map);
- 
-String dataPoints = gsonObj.toJson(list);
-System.out.print(dataPoints);
+Object expense = request.getAttribute("expenses");
+String expenses = (String)expense;
+
 %>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,7 +35,7 @@ window.onload = function() {
 			legendText: "{category}",
 			toolTipContent: "{category}: <strong>{y}</strong>",
 			indexLabel: "{category} {y}",
-			dataPoints : <%out.print(dp);%>
+			dataPoints : <%out.print(expenses);%>
 		}]
 	});
 	 
@@ -71,7 +56,7 @@ border-radius: 40px;
 <title>Dashboard</title>
 </head>
 <body>
-<%int id=Integer.parseInt(request.getParameter("id")); %>
+
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 	<div class="container jumbotron" style="background-color: white">
 		<div class="row" style="background-color: white">

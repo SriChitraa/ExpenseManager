@@ -36,15 +36,14 @@ public class ExpenseServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		HttpSession session = request.getSession(true);
+	
 		try {
+			int userId = (int) request.getSession().getAttribute("user_id");
 			ExpenseDS expense= new ExpenseDS();
-			ArrayList<Expense> expenses = expense.viewExpense();
-			session.setAttribute("expenses", expenses);
-			response.sendRedirect("expense.jsp");
+			ArrayList<Expense> expenses = expense.getExpense(userId);
+			request.setAttribute("expenses", expenses);
+			request.getRequestDispatcher("/expense.jsp").forward(request, response);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
@@ -55,8 +54,8 @@ public class ExpenseServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		User user = new User();
-		int id = user.getId();
+
+		int userId = (int) request.getSession().getAttribute("user_id");
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
 		String category = request.getParameter("category");
@@ -65,12 +64,12 @@ public class ExpenseServlet extends HttpServlet {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/task", "root", "root");
-			CallableStatement call = (CallableStatement) connect.prepareCall("call addExpenses(?,?,?,?,?,?)");
+			CallableStatement call = (CallableStatement) connect.prepareCall("call addExpense(?,?,?,?,?,?)");
 			call.setString(1, date);
 			call.setString(2, time);
 			call.setString(3, category);
 			call.setInt(4, amount);
-			call.setInt(5, id);
+			call.setInt(5, userId);
 			call.setString(6, content);
 			call.executeUpdate();
 
