@@ -10,7 +10,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 <style>
-h2{
+#header{
 text-align: center;
 padding:30px;
 font-size: x-large; 
@@ -22,7 +22,7 @@ background-color:#073b4c;
 </head>
 <body>
 	<div class="box">
-		<h2>
+		<h2 id="header">
 			<strong>MONEY MANAGER</strong>
 		</h2>
 		<br />

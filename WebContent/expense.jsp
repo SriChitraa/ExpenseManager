@@ -15,23 +15,22 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 <title>Insert title here</title>
  <style>
- td { 
-                width:150px; 
-                text-align:center; 
-                border:1px solid black; 
-                padding:5px 
-              
-            } 
- </style> 
+td {
+	width: 150px;
+	text-align: center;
+	border: 1px solid black;
+	padding: 5px;
+}
+</style> 
 
 
-  <%@ include file = "header.jsp" %>
+<%@ include file = "header.jsp" %>
 <title>Insert title here</title>
 </head>
 <body>
 <div class="container">
 <h2></h2>
-<form class="form-inline" action = "CategoryFilter" method ="post">
+<form class="form-inline" action = "AllExpense" method ="post">
 <div class="form-group">
 
 <% 
@@ -84,7 +83,7 @@ System.out.println(details.get(1));
       <label class="sr-only" for="pwd">Password:</label>
       <input type="date" class="form-control" id="pwd" style="width: 160px" value="<%=endDate %>" placeholder="End Date" name="end">
     </div>
-    <button type="submit" style="width: 160px" class="btn btn-default" onclick="form.action='CategoryFilter';">Search</button>
+    <button type="submit" style="width: 160px" class="btn btn-default" onclick="form.action='AllExpense'method='post';">Search</button>
 <h2></h2>		
 <table  border = "1" style = "text-align:center">
 <tr>
@@ -97,6 +96,7 @@ System.out.println(details.get(1));
 <% 
 Object expense = request.getAttribute("expenses");
 ArrayList<Expense> expenses = new ArrayList<Expense>();
+System.out.print("Line 97"+expenses.size());
 expenses = (ArrayList<Expense>)expense;
 for(Expense data:expenses) {
 %>
@@ -108,10 +108,10 @@ for(Expense data:expenses) {
 <td><%=data.getContent() %></td>
 </tr>
 <%}
-System.out.println("End");%>
+System.out.println("end");%>
 </table>
 <h2></h2>
-<button type="submit" style="width: 200px" class="btn btn-default"  name="action" onclick="form.action='addExpenses.jsp';">Add Expenses</button>
+<button type="submit" style="width: 200px" class="btn btn-default"  name="action" onclick="form.action='addExpense.jsp';">Add Expenses</button>
  
 
 </form>

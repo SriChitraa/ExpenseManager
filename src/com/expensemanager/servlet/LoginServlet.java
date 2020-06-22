@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
 
 				try {
 					ExpenseDS expense = new ExpenseDS();
-					ArrayList<Expense> expenses = expense.getExpense(userId);
+					ArrayList<Expense> expenses = expense.getExpenseForChart(userId);
 					ArrayList<ExpenseDTO> expenseDTOs = convertToDTO(expenses);
 					String dataPoints = new Gson().toJson(expenseDTOs);
 					request.setAttribute("expenses", dataPoints);

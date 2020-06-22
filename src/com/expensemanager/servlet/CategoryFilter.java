@@ -55,11 +55,11 @@ public class CategoryFilter extends HttpServlet {
 		session.setAttribute("filter", filter);
 		
 		ArrayList<Expense>expenses = new ArrayList<>();
-		
+		int userId = (int) request.getSession().getAttribute("user_id");
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/task","root","root");
-			PreparedStatement ps =  connect.prepareStatement("select * from expenses where Category = '"+category+"'and Date between '"+start+"'and'"+end+"'order by Date Desc;");
+			PreparedStatement ps =  connect.prepareStatement("select * from expenses where category = '"+category+"' and user_id="+userId+" and date between '"+start+"'and'"+end+"' order by date Desc;");
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				Expense list = new Expense();
@@ -69,8 +69,11 @@ public class CategoryFilter extends HttpServlet {
 				list.setAmount(rs.getInt("amount"));
 				list.setContent(rs.getString("content"));
 				expenses.add(list);			
-			}session.setAttribute("expenses",expenses);
-			response.sendRedirect("expense.jsp");
+			}
+			request.setAttribute("expenses",expenses);
+			request.getRequestDispatcher("/expense.jsp").forward(request, response);
+			
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
