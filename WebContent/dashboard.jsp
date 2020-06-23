@@ -56,7 +56,6 @@ border-radius: 40px;
 <title>Dashboard</title>
 </head>
 <body>
-
 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 	<div class="container jumbotron" style="background-color: white">
 		<div class="row" style="background-color: white">

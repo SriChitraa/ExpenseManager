@@ -34,12 +34,13 @@ td {
 <div class="form-group">
 
 <% 
-Object info = session.getAttribute("filter");
+Object info = request.getAttribute("filter");
 ArrayList<String> details = new ArrayList<>();
 if(info ==null){
 	 details = null ;
 }else{
 	details = (ArrayList<String>)info;
+	
 }
 String category = new String();
 String startDate = new String();

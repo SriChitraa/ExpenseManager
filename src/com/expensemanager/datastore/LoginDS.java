@@ -8,23 +8,20 @@ import com.expensemanager.model.User;
 
 public class LoginDS {
 
-	public User getUser(String uname){
+	public User getUser(String uname) {
 		User user = new User();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/task", "root", "root");
 			PreparedStatement ps = connect.prepareStatement("select * from login where username = '" + uname + "';");
 			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {				
+			while (rs.next()) {
 				user.setId(rs.getInt("id"));
-				user.setPassword(rs.getString("userpassword"));					
+				user.setPassword(rs.getString("userpassword"));
 			}
-
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return user;
-						
 	}
 }

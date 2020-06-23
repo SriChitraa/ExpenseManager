@@ -45,49 +45,43 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
 		String uname = request.getParameter("username");
-		HttpSession session = request.getSession();
 		String password = request.getParameter("password");
+		HttpSession session = request.getSession();
+		LoginDS loginDS = new LoginDS();
+		User user = loginDS.getUser(uname);
+		int userId = user.getId();
+		String userPassword = user.getPassword();
+		session.setAttribute("user_id", userId);
 		
-			LoginDS loginDS = new LoginDS();
-			User user =loginDS.getUser(uname);
-			int userId = user.getId();
-			String userPassword = user.getPassword();
-			session.setAttribute("user_id", userId);
-			if (password.equals(userPassword)) {
+		if (password.equals(userPassword)) {
 
-				try {
-					ExpenseDS expense = new ExpenseDS();
-					ArrayList<Expense> expenses = expense.getExpenseForChart(userId);
-					ArrayList<ExpenseDTO> expenseDTOs = convertToDTO(expenses);
-					String dataPoints = new Gson().toJson(expenseDTOs);
-					request.setAttribute("expenses", dataPoints);
-					request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
-			
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			} else {
-				response.sendRedirect("login.jsp");
+			try {
+				ExpenseDS expenseDS = new ExpenseDS();
+				ArrayList<Expense> expenses = expenseDS.getExpenseForChart(userId);
+				ArrayList<ExpenseDTO> expenseDTOs = convertToDTO(expenses);
+				String dataPoints = new Gson().toJson(expenseDTOs);
+				request.setAttribute("expenses", dataPoints);
+				request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		
+		} else {
+			response.sendRedirect("login.jsp");
+		}
+
 	}
-		
 
-
-private ArrayList<ExpenseDTO> convertToDTO(List<Expense> expenses) {
+		private ArrayList<ExpenseDTO> convertToDTO(List<Expense> expenses) {
 			ArrayList<ExpenseDTO> expenseDTOs = new ArrayList<>();
 			ExpenseDTO expenseDTO;
-			for(Expense expense: expenses) {
-				expenseDTO = new ExpenseDTO(expense.getCategory(),expense.getAmount());
+			for (Expense expense : expenses) {
+				expenseDTO = new ExpenseDTO(expense.getCategory(), expense.getAmount());
 				expenseDTOs.add(expenseDTO);
 			}
 			return expenseDTOs;
-		}
-
-				
+		}				
 	}
 
