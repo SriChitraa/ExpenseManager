@@ -62,7 +62,7 @@ border-radius: 40px;
 			<div class="col-sm-offset-4 col-sm-4" style="background-color: white; padding: 0px">
 				<form class="form-inline" name="form">
 					<input type="submit" name="action" 	value="Add Expenses" onclick="form.action='addExpense.jsp';"/>					
-					<input	type="submit" name="action"	 value="View Expenses" onclick="form.action='ExpenseServlet';" />
+					<input	type="submit" name="action"	 value="View Expenses" onclick="form.action='expenses';" />
 				</form>
 			</div>
 		</div>

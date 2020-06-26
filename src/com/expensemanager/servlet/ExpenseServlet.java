@@ -15,7 +15,7 @@ import com.expensemanager.model.Expense;
 /**
  * Servlet implementation class ExpenseServlet
  */
-@WebServlet("/ExpenseServlet")
+@WebServlet("/expenses")
 public class ExpenseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,14 +31,22 @@ public class ExpenseServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ArrayList<String> filter = new ArrayList<>();
+		String category = request.getParameter("category");
+		String start = request.getParameter("start");
+		String end = request.getParameter("end");
+		filter.add(category);
+		filter.add(start);
+		filter.add(end);
+		request.setAttribute("filter", filter);
+
 		int userId = (int) request.getSession().getAttribute("user_id");
 		try {
-			
-			System.out.print(userId);
-			ExpenseDS expenseDS= new ExpenseDS();
-			ArrayList<Expense> expenses = expenseDS.getExpense(userId);
+			ExpenseDS expenseDS = new ExpenseDS();
+			ArrayList<Expense> expenses = expenseDS.getExpenses(userId, category, start, end);
 			request.setAttribute("expenses", expenses);
 			request.getRequestDispatcher("/expense.jsp").forward(request, response);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

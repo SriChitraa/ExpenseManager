@@ -28,7 +28,7 @@
 	<div class="container jumbotron" style="background-color: white; padding: 0px; margin: 0px; border: 0px">
 		<div class="row" style="background-color: white">
 			<div class="col-sm-offset-5 col-sm-5"style="background-color: white; padding: 0px">
-				<form class="form-inline" style="padding: 10px" name="form"	action="ExpenseServlet" method="post">
+				<form class="form-inline" style="padding: 10px" name="form"	action="expenses" method="post">
 					<div class="form-group">
 						<label class="control-label col-sm-6" style="text-align: left">Date:</label>
 						<div class="col-sm-6"><input type="date" class="form-control" style="width: 200px"	name="date" />
