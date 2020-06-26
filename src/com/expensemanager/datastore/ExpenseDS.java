@@ -70,6 +70,7 @@ public class ExpenseDS {
 		ArrayList<Expense> expenses = new ArrayList<>();
 		QueryBuilder queryBuilder = new QueryBuilder();
 		String query = queryBuilder.buildExpenseQuery(category, userId, startDate, endDate);
+		System.out.print(query);
 		try {
 			Connection connect = getConnection();
 			PreparedStatement ps = connect.prepareStatement(query);

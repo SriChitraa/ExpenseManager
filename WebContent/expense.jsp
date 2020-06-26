@@ -30,7 +30,7 @@ td {
 <body>
 <div class="container">
 <h2></h2>
-<form class="form-inline" action = "AllExpense" method ="post">
+<form class="form-inline" action = "expenses">
 <div class="form-group">
 
 <% 

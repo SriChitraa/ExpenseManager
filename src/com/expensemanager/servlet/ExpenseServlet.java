@@ -33,17 +33,17 @@ public class ExpenseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<String> filter = new ArrayList<>();
 		String category = request.getParameter("category");
-		String start = request.getParameter("start");
-		String end = request.getParameter("end");
+		String startDate = request.getParameter("start");
+		String endDate = request.getParameter("end");
 		filter.add(category);
-		filter.add(start);
-		filter.add(end);
+		filter.add(startDate);
+		filter.add(endDate);
 		request.setAttribute("filter", filter);
 
 		int userId = (int) request.getSession().getAttribute("user_id");
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
-			ArrayList<Expense> expenses = expenseDS.getExpenses(userId, category, start, end);
+			ArrayList<Expense> expenses = expenseDS.getExpenses(userId, category, startDate, endDate);
 			request.setAttribute("expenses", expenses);
 			request.getRequestDispatcher("/expense.jsp").forward(request, response);
 
@@ -62,7 +62,7 @@ public class ExpenseServlet extends HttpServlet {
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
 		String category = request.getParameter("category");
-		int amount = Integer.parseInt(request.getParameter("amount"));
+		int amount = request.getParameter("amount") != null ? Integer.parseInt(request.getParameter("amount")): 0;
 		String content = request.getParameter("content");
 		PrintWriter out = response.getWriter();
 		try {
