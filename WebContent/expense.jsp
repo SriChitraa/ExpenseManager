@@ -78,11 +78,11 @@ System.out.println(details.get(1));
 </div>
 <div class="form-group">
       <label class="sr-only" for="pwd">Password:</label>
-      <input type="date" class="form-control" id="pwd" style="width: 160px" value="<%=startDate %>"  placeholder="Start Date" name="start">
+      <input type="date" class="form-control" id="pwd" style="width: 160px" value="<%=startDate %>"  placeholder="Start Date" name="startDate">
     </div>
     <div class="form-group">
       <label class="sr-only" for="pwd">Password:</label>
-      <input type="date" class="form-control" id="pwd" style="width: 160px" value="<%=endDate %>" placeholder="End Date" name="end">
+      <input type="date" class="form-control" id="pwd" style="width: 160px" value="<%=endDate %>" placeholder="End Date" name="endDate">
     </div>
     <button type="submit" style="width: 160px" class="btn btn-default" onclick="form.action='expenses'">Search</button>
 <h2></h2>		
