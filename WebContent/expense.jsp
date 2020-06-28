@@ -15,9 +15,9 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 <title>Insert title here</title>
  <style>
-td {
+td,th {
 	width: 150px;
-	text-align: center;
+	text-align: center!important;
 	border: 1px solid black;
 	padding: 5px;
 }
@@ -88,11 +88,11 @@ System.out.println(details.get(1));
 <h2></h2>		
 <table  border = "1" style = "text-align:center">
 <tr>
-<td>Date</td>
-<td>Time</td>
-<td>Category</td>
-<td>Amount</td>
-<td>Content</td>
+<th>Date</th>
+<th>Time</th>
+<th>Category</th>
+<th>Amount</th>
+<th>Content</th>
 </tr>
 <% 
 Object expense = request.getAttribute("expenses");
@@ -109,10 +109,10 @@ for(Expense data:expenses) {
 <td><%=data.getContent() %></td>
 </tr>
 <%}
-System.out.println("end");%>
+%>
 </table>
 <h2></h2>
-<button type="submit" style="width: 200px" class="btn btn-default"  name="action" onclick="form.action='addExpense.jsp';">Add Expenses</button>
+<button type="submit" style="width: 200px" class="btn btn-default"  name="action" onclick="form.action='addExpense.jsp';">Add Expense</button>
  
 
 </form>

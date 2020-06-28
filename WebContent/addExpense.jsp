@@ -31,12 +31,12 @@
 				<form class="form-inline" style="padding: 10px" name="form"	action="expenses" method="post">
 					<div class="form-group">
 						<label class="control-label col-sm-6" style="text-align: left">Date:</label>
-						<div class="col-sm-6"><input type="date" class="form-control" style="width: 200px"	name="date" />
+						<div class="col-sm-6"><input type="date" class="form-control" style="width: 200px"	name="date" required/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-6" style="text-align: left">Time:</label>
-						<div class="col-sm-6"><input type="time" class="form-control" style="width: 200px" name="time" />
+						<div class="col-sm-6"><input type="time" class="form-control" style="width: 200px" name="time" required/>
 						</div>
 					</div>
 
@@ -45,7 +45,7 @@
 						<div class="col-sm-6">
 							<div class="drop-down">
 								<select name="category" class="form-control"
-									style="width: 200px" id="category">
+									style="width: 200px" id="category" required>
 									<option>Select</option>
 									<option>Investment</option>
 									<option>HouseRent</option>
@@ -63,12 +63,12 @@
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-6" style="text-align: left">Amount:</label>
-						<div class="col-sm-6"><input type="text" class="form-control" style="width: 200px" name="amount" />
+						<div class="col-sm-6"><input type="number" class="form-control" style="width: 200px" name="amount" required />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-6" style="text-align: left">Content:</label>
-						<div class="col-sm-6"><input type="text" class="form-control" style="width: 200px" name="content" />
+						<div class="col-sm-6"><input type="text" class="form-control" style="width: 200px" maxlength="50" name="content" required />
 						</div>
 					</div>
 					<div class="form-group">

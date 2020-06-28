@@ -33,6 +33,9 @@ public class ExpenseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<String> filter = new ArrayList<>();
 		String category = request.getParameter("category");
+		if ( "All".equals(category)) {
+			 category = null;
+		}
 		String startDate = request.getParameter("startDate");
 		String endDate = request.getParameter("endDate");
 		filter.add(category);
@@ -62,7 +65,7 @@ public class ExpenseServlet extends HttpServlet {
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
 		String category = request.getParameter("category");
-		int amount = request.getParameter("amount") != null ? Integer.parseInt(request.getParameter("amount")): 0;
+		int amount = Integer.parseInt(request.getParameter("amount"));
 		String content = request.getParameter("content");
 		PrintWriter out = response.getWriter();
 		try {
