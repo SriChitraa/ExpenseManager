@@ -13,16 +13,8 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+<link href="css/expense.css" type="text/css" rel="stylesheet" />
 <title>Insert title here</title>
- <style>
-td,th {
-	width: 150px;
-	text-align: center!important;
-	border: 1px solid black;
-	padding: 5px;
-}
-</style> 
-
 
 <%@ include file = "header.jsp" %>
 <title>Insert title here</title>

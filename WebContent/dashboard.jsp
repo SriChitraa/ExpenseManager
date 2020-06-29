@@ -18,6 +18,7 @@ String expenses = (String)expense;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<link href="css/dashboard.css" type="text/css" rel="stylesheet" />
 <script>
 window.onload = function() { 
 	 
@@ -43,15 +44,7 @@ window.onload = function() {
 	 
 	}
 </script>
-<style>
-input[type=submit]{
-color: white;
-background-color: black;
-border: hidden; 
-width: 180px; 
-border-radius: 40px;
-}
-</style>
+
 <%@ include file="header.jsp" %>
 <title>Dashboard</title>
 </head>

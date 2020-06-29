@@ -8,44 +8,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<link href="css/login.css" type="text/css" rel="stylesheet" />
 <title>Insert title here</title>
-<style>
-
-.box{
-width: 100%; 
-text-align: center; 
-background-color: darkgray;
-height: 100px; 
-padding: 15px;
-background-image: linear-gradient(90deg, #febc6d, #fd7a66);
-}
-#password,#uname{
-border-style: hidden;
-width: 100%;
-border-bottom: 1px solid lightgray;
-margin-bottom: 20px;
-padding: 10px
-}
-.btn-default{
-color: white;
-display: inline-block;
-background-color: #626262; 
-font-size: x-small;
-border: hidden;
-width: 80px;
-margin-top: 10px; 
-margin-bottom: 20px;
-border-radius: 20px
-}
-.control-label{
-float: right; 
-font-size: x-small; 
-display: inline-block; 
-color: lightgray
-}
-
-</style>
 </head>
 <body>
 

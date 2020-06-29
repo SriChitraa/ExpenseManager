@@ -1,0 +1,8 @@
+@charset "ISO-8859-1";
+input[type=submit]{
+color: white;
+background-color: black;
+border: hidden; 
+width: 180px; 
+border-radius: 40px;
+}
