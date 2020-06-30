@@ -29,40 +29,14 @@
 <h2></h2>
 <form class="form-inline" action = "expenses">
 <div class="form-group">
-
 <% 
-
-LocalDate todaydate = LocalDate.now();
-Calendar cal = Calendar.getInstance();
-System.out.println("Months first date in yyyy-mm-dd: " +todaydate.withDayOfMonth(1));
-Date start = java.sql.Date.valueOf(todaydate.withDayOfMonth(1));
-Date end = java.sql.Date.valueOf(todaydate.withDayOfMonth(cal.getActualMaximum(Calendar.DATE)));
-DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-String monthStart = df.format(start);
-String monthEnd = df.format(end);
-
 Object info = request.getAttribute("filter");
 ArrayList<String> details = new ArrayList<>();
-if(info ==null){
-	 details = null ;
-}else{
-	details = (ArrayList<String>)info;
-	}
+details = (ArrayList<String>)info;
 
-String category = new String();
-String startDate = new String();
-String endDate = new String();
-if(details == null){
-	category = "All";
-	startDate = monthStart;
-	System.out.print(startDate);
-	endDate = monthEnd;
-	 }
-else{
-category = details.get(0);
-startDate =	details.get(1);
-endDate = details.get(2);
-	}
+String category = details.get(0);
+String startDate = details.get(1);
+String endDate = details.get(2);
 %>
       <label class="sr-only" for="email">Email:</label>
       <div class="drop-down">

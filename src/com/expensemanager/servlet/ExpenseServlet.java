@@ -2,7 +2,12 @@ package com.expensemanager.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,13 +38,14 @@ public class ExpenseServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<String> filter = new ArrayList<>();
-		String category = request.getParameter("category");
+		String category = request.getParameter("category") == null ? "All" : request.getParameter("category");
+		filter.add(category);
 		if ( "All".equals(category)) {
 			 category = null;
 		}
-		String startDate = request.getParameter("startDate");
-		String endDate = request.getParameter("endDate");
-		filter.add(category);
+		String startDate = request.getParameter("startDate") ==null ? getMonthStartDate() :  request.getParameter("startDate") ;
+		String endDate = request.getParameter("endDate") == null ? getMonthEndDate() : request.getParameter("endDate");
+		
 		filter.add(startDate);
 		filter.add(endDate);
 		request.setAttribute("filter", filter);
@@ -55,6 +61,22 @@ public class ExpenseServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	
+	}
+	
+	private String getMonthStartDate() {
+		LocalDate today = LocalDate.now();
+		Date startDate = java.sql.Date.valueOf(today.withDayOfMonth(1));
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String monthStart = df.format(startDate);
+		return monthStart;
+	}
+	private String getMonthEndDate() {
+		LocalDate today = LocalDate.now();
+		Calendar cal = Calendar.getInstance();
+		Date endDate = java.sql.Date.valueOf(today.withDayOfMonth(cal.getActualMaximum(Calendar.DATE)));
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		String monthEnd = df.format(endDate);
+		return monthEnd;
 	}
 
 	/**
