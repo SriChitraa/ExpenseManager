@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.*"%> 
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="com.expensemanager.model.Expense"%>     
 <!DOCTYPE html>
 <html>
@@ -15,7 +18,9 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 <link href="css/expense.css" type="text/css" rel="stylesheet" />
 <title>Insert title here</title>
+<script>
 
+</script>
 <%@ include file = "header.jsp" %>
 <title>Insert title here</title>
 </head>
@@ -26,35 +31,44 @@
 <div class="form-group">
 
 <% 
+
+LocalDate todaydate = LocalDate.now();
+Calendar cal = Calendar.getInstance();
+System.out.println("Months first date in yyyy-mm-dd: " +todaydate.withDayOfMonth(1));
+Date start = java.sql.Date.valueOf(todaydate.withDayOfMonth(1));
+Date end = java.sql.Date.valueOf(todaydate.withDayOfMonth(cal.getActualMaximum(Calendar.DATE)));
+DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+String monthStart = df.format(start);
+String monthEnd = df.format(end);
+
 Object info = request.getAttribute("filter");
 ArrayList<String> details = new ArrayList<>();
 if(info ==null){
 	 details = null ;
 }else{
 	details = (ArrayList<String>)info;
-	
-}
+	}
+
 String category = new String();
 String startDate = new String();
 String endDate = new String();
 if(details == null){
-	category = "";
-	startDate = "";
-	endDate = "";
+	category = "All";
+	startDate = monthStart;
+	System.out.print(startDate);
+	endDate = monthEnd;
 	 }
 else{
 category = details.get(0);
 startDate =	details.get(1);
 endDate = details.get(2);
-System.out.println(details.get(1));
 	}
-
-
 %>
       <label class="sr-only" for="email">Email:</label>
       <div class="drop-down">
 <select name="category" class="form-control"  style="width: 160px" id="category">
 <option>Select</option>
+<option <%if("All".equals(category)) {%> selected <%} %>  >All</option>
 <option <%if("Investment".equals(category)) {%> selected <%} %>  >Investment</option>
 <option <%if("HouseRent".equals(category)) {%> selected <%} %>  >HouseRent</option>
 <option <%if("Recreation".equals(category)) {%> selected <%} %>  >Recreation</option>
@@ -70,11 +84,11 @@ System.out.println(details.get(1));
 </div>
 <div class="form-group">
       <label class="sr-only" for="pwd">Password:</label>
-      <input type="date" class="form-control" id="pwd" style="width: 160px" value="<%=startDate %>"  placeholder="Start Date" name="startDate">
+      <input type="date" class="form-control" id="startDate" style="width: 160px" value="<%=startDate %>"  placeholder="Start Date" name="startDate">
     </div>
     <div class="form-group">
       <label class="sr-only" for="pwd">Password:</label>
-      <input type="date" class="form-control" id="pwd" style="width: 160px" value="<%=endDate %>" placeholder="End Date" name="endDate">
+      <input type="date" class="form-control" id="endDate" style="width: 160px" value="<%=endDate %>" placeholder="End Date" name="endDate">
     </div>
     <button type="submit" style="width: 160px" class="btn btn-default" onclick="form.action='expenses'">Search</button>
 <h2></h2>		
@@ -89,7 +103,6 @@ System.out.println(details.get(1));
 <% 
 Object expense = request.getAttribute("expenses");
 ArrayList<Expense> expenses = new ArrayList<Expense>();
-System.out.print("Line 97"+expenses.size());
 expenses = (ArrayList<Expense>)expense;
 for(Expense data:expenses) {
 %>
