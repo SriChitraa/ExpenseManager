@@ -19,7 +19,14 @@
 <link href="css/expense.css" type="text/css" rel="stylesheet" />
 <title>Insert title here</title>
 <script>
-
+	function checkDates() {	
+	
+		var startDate = Date.parse(document.getElementById("startDate").value);
+		var endDate = Date.parse(document.getElementById("endDate").value);
+		if (startDate > endDate) {
+			alert("Check End Date");
+		}
+	}
 </script>
 <%@ include file = "header.jsp" %>
 <title>Insert title here</title>
@@ -40,7 +47,7 @@ String endDate = details.get(2);
 %>
       <label class="sr-only" for="email">Email:</label>
       <div class="drop-down">
-<select name="category" class="form-control"  style="width: 160px" id="category">
+<select name="category" class="form-control"  style="width: 160px" id="category" required>
 <option>Select</option>
 <option <%if("All".equals(category)) {%> selected <%} %>  >All</option>
 <option <%if("Investment".equals(category)) {%> selected <%} %>  >Investment</option>
@@ -57,14 +64,12 @@ String endDate = details.get(2);
 </div>
 </div>
 <div class="form-group">
-      <label class="sr-only" for="pwd">Password:</label>
-      <input type="date" class="form-control" id="startDate" style="width: 160px" value="<%=startDate %>"  placeholder="Start Date" name="startDate">
+      <input type="date" class="form-control" id="startDate" style="width: 160px" value="<%=startDate %>"  placeholder="Start Date" name="startDate" required>
     </div>
     <div class="form-group">
-      <label class="sr-only" for="pwd">Password:</label>
-      <input type="date" class="form-control" id="endDate" style="width: 160px" value="<%=endDate %>" placeholder="End Date" name="endDate">
+     <input type="date" class="form-control" id="endDate" style="width: 160px" value="<%=endDate %>" placeholder="End Date" name="endDate" required>
     </div>
-    <button type="submit" style="width: 160px" class="btn btn-default" onclick="form.action='expenses'">Search</button>
+    <button onclick="checkDates()" style="width: 160px" class="btn btn-default" >Search</button>
 <h2></h2>		
 <table  border = "1" style = "text-align:center">
 <tr>

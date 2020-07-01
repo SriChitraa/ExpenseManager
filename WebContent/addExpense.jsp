@@ -10,7 +10,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="css/addExpense.css" type="text/css" rel="stylesheet" />
 <title>Insert title here</title>
-
+<script>
+$(document).ready(function(){
+	$("form").submit(function(){
+		alert("Expense added!");
+	});
+});
+</script>
 <%@ include file="header.jsp" %>
 </head>
 <body>
