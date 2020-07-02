@@ -56,11 +56,9 @@ public class ExpenseServlet extends HttpServlet {
 			ArrayList<Expense> expenses = expenseDS.getExpenses(userId, category, startDate, endDate);
 			request.setAttribute("expenses", expenses);
 			request.getRequestDispatcher("/expense.jsp").forward(request, response);
-
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-	
+		}	
 	}
 	
 	private String getMonthStartDate() {

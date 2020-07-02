@@ -37,13 +37,13 @@
 <form class="form-inline" action = "expenses">
 <div class="form-group">
 <% 
-Object info = request.getAttribute("filter");
-ArrayList<String> details = new ArrayList<>();
-details = (ArrayList<String>)info;
+Object filter = request.getAttribute("filter");
+ArrayList<String> filters = new ArrayList<>();
+filters = (ArrayList<String>)filter;
 
-String category = details.get(0);
-String startDate = details.get(1);
-String endDate = details.get(2);
+String category = filters.get(0);
+String startDate = filters.get(1);
+String endDate = filters.get(2);
 %>
       <label class="sr-only" for="email">Email:</label>
       <div class="drop-down">
