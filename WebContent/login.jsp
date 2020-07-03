@@ -29,11 +29,9 @@ request.setAttribute("username",null);
 					<p style="text-align: right; font-size: x-small; color: lightgray">	Forgot <a href="#" style="color: gray; text-align: right"><strong>Password?</strong></a></p><br />
 				    <input type="submit" class="btn btn-default" value="LOG IN" /> 
 					<label class="control-label">Don't	have an account?<a href="#" style="color: gray"><strong>Sign up</strong></a></label>
-
 				</form>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

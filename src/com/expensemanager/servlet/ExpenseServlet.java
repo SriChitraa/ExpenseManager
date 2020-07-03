@@ -88,12 +88,11 @@ public class ExpenseServlet extends HttpServlet {
 		String category = request.getParameter("category");
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		String content = request.getParameter("content");
-		PrintWriter out = response.getWriter();
+		
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
 			expenseDS.addExpense(date, time, category, amount, userId, content);
-			out.print("Expense added!");
-		} catch (Exception e) {
+			} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

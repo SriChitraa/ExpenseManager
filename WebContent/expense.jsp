@@ -22,9 +22,13 @@
 	function checkDates() {	
 	
 		var startDate = Date.parse(document.getElementById("startDate").value);
+		var category = document.getElementById("category");
 		var endDate = Date.parse(document.getElementById("endDate").value);
 		if (startDate > endDate) {
 			alert("Check End Date");
+		}
+		if(category = "Select"){
+			alert("Please select a category!");
 		}
 	}
 </script>

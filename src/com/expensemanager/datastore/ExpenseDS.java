@@ -19,7 +19,7 @@ public class ExpenseDS {
 			Connection connect = getConnection();
 			Statement st = connect.createStatement();
 			st.executeQuery("select date,time,category, sum(amount) as \"amount\",content  from expenses where user_id="
-					+ userId + " group by category;");
+					+ userId + " and (date between  DATE_FORMAT(curdate() ,'%Y-%m-01') AND last_day(curdate())) group by category;");
 			ResultSet rs = st.getResultSet();
 			return buildExpenses(rs);
 
