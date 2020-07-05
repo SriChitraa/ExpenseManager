@@ -24,15 +24,16 @@ body {
 }
 .topnav #myLinks {
   display: block;
-  background: black;
+  width:300px;
+  position: fixed;
+  right: 0;
+  background: #073b4c;
   border: 0px;
 }
 .topnav a.icon {
   
   display: block;
   position: absolute;
-  border: 0px;
-  margin:0px;
   right: 0;
   top: 0;
 }
