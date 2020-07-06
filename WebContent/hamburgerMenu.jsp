@@ -7,53 +7,116 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Insert title here</title>
 <style>
-.dropdown-menu li:hover .sub-menu {
-  visibility: visible;
+body
+{
+  margin: 0;
+  padding: 0;
+  background: #232323;
+  color: #cdcdcd;
+  font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
-.dropdown:hover .dropdown-menu {
+#menuToggle
+{
   display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  
 }
 
-.nav-tabs .dropdown-menu,
-.nav-pills .dropdown-menu,
-.navbar .dropdown-menu {
-  margin-top: 0;
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
 }
+
+#menuToggle li:hover
+{
+   background-color: black;
+  color: #ddd;
 }
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0;
+  z-index: 2; 
+  
+  -webkit-touch-callout: none;
+}
+
+
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+}
+
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  list-style-type: none;
+  background: #ededed;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
 </style>
-<script>
-function myFunction() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "block") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-}
-</script>
 </head>
 <body>
-	<div class="container">
-		<div class="hamburger">
-			<span class="icon"></span> <span class="icon"></span> <span
-				class="icon"></span>
-			<div class="nav-collapse">
-				<ul class="dropdown-menu">
-					<li><a href="#">2-level Dropdown <i
-							class="icon-arrow-right"></i></a>
-						<ul class="dropdown-menu sub-menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li class="divider"></li>
-							<li class="nav-header">Nav header</li>
-							<li><a href="#">Separated link</a></li>
-							<li><a href="#">One more separated link</a></li>
-						</ul>
-						</ul>
-			</div>
-		</div>
-		</div>
+<nav role="navigation">
+  <div id="menuToggle">
+   
+    <input type="checkbox" />
+    
+    <span></span>
+    <span></span>
+    <span></span>
+  
+    <ul id="menu">
+      <a href="addExpense.jsp"><li>Add Expense</li></a>
+      <a href="expenses"><li>View  Expense</li></a>
+      <a href="dashboard.jsp"><li>DashBoard</li></a>
+      
+    </ul>
+  </div>
+</nav>
 </body>
 </html>
