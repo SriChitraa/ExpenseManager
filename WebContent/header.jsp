@@ -25,7 +25,6 @@ background-color:#073b4c;
 }
 #menuToggle
 {
-  display: block;
   position: relative;
   top: -60px;
   left: 50px;
@@ -81,9 +80,10 @@ background-color:#073b4c;
 
 #menu
 {
+
   position: absolute;
-  width: 250px;
-  margin: 33px 0 0 -50px;
+  width: 200px;
+  margin: 37px 0 0 -50px;
   padding: 30px;
   list-style-type: none;
   background: #ededed;
@@ -104,25 +104,24 @@ background-color:#073b4c;
   transform: none;
 }
 
+
 </style>
 </head>
 <body>
+	<div class="container jumbotron" style="margin:0px;width: 100%;padding: 0px">
+		<div class="row" style="background-color: white">
+			<h2 id="header"><strong>MONEY MANAGER</strong></h2>
 
-	<div class="container">
-		<h2 id="header">
-			<strong>MONEY MANAGER</strong>
-		</h2>
+			<div id="menuToggle">
+				<input type="checkbox" /> <span></span> <span></span> <span></span>
+				<ul id="menu">
+					<a href="addExpense.jsp"><li>Add Expense</li></a>
+					<a href="expenses"><li>View Expense</li></a>
+					<a href="dashboard.jsp"><li>DashBoard</li></a>
 
-		<div id="menuToggle">
+				</ul>
 
-			<input type="checkbox" /> <span></span> <span></span> <span></span>
-
-			<ul id="menu">
-				<a href="addExpense.jsp"><li>Add Expense</li></a>
-				<a href="expenses"><li>View Expense</li></a>
-				<a href="dashboard.jsp"><li>DashBoard</li></a>
-
-			</ul>
+			</div>
 		</div>
 	</div>
 </body>
