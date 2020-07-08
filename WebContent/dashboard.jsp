@@ -28,7 +28,7 @@ window.onload = function() {
 		exportFileName: "New Year Resolutions",
 		exportEnabled: true,
 		title:{
-			text: "Top Categories of New Year's Resolution"
+			text: "Top Categories"
 		},
 		data: [{
 			type: "pie",
@@ -49,7 +49,7 @@ window.onload = function() {
 <title>Dashboard</title>
 </head>
 <body>
-<div id="chartContainer" style="height: 370px"></div>
+<div id="chartContainer" style="height: 370px; margin-left:200px;margin-right:  200px"></div>
 	<div class="container jumbotron" style="background-color: white">
 		<div class="row" style="background-color: white">
 			<div class="col-sm-offset-4 col-sm-4" style="background-color: white; padding: 0px">

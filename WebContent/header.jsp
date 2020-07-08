@@ -12,7 +12,7 @@ body
 {
   margin: 0;
   padding: 0;
-  color: #cdcdcd;
+  
   font-family: "Avenir Next", "Avenir", sans-serif;
 }
 #header{
@@ -83,7 +83,7 @@ background-color:#073b4c;
 
   position: absolute;
   width: 200px;
-  margin: 37px 0 0 -50px;
+  margin: 33px 0 0 -50px;
   padding: 30px;
   list-style-type: none;
   background: #ededed;
@@ -95,7 +95,7 @@ background-color:#073b4c;
 #menu li
 {
   padding: 10px 0;
-  font-size: 22px;
+  font-size: 15px;
 }
 
 
