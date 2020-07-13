@@ -4,29 +4,23 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Insert title here</title>
 <style>
 body
 {
   margin: 0;
   padding: 0;
-  
+  background: #232323;
+  color: #cdcdcd;
   font-family: "Avenir Next", "Avenir", sans-serif;
 }
-#header{
-text-align: center;
-padding:30px;
-font-size: x-large; 
-color: white;
-margin:0px;
-background-color:#073b4c;
-}
+
 #menuToggle
 {
+  display: block;
   position: relative;
-  top: -60px;
+  top: 50px;
   left: 50px;
   
 }
@@ -80,11 +74,11 @@ background-color:#073b4c;
 
 #menu
 {
-
   position: absolute;
-  width: 200px;
-  margin: 33px 0 0 -50px;
-  padding: 30px;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
   list-style-type: none;
   background: #ededed;
   transform-origin: 0% 0%;
@@ -95,7 +89,7 @@ background-color:#073b4c;
 #menu li
 {
   padding: 10px 0;
-  font-size: 15px;
+  font-size: 22px;
 }
 
 
@@ -104,40 +98,25 @@ background-color:#073b4c;
   transform: none;
 }
 
-
 </style>
 </head>
 <body>
 <nav role="navigation">
   <div id="menuToggle">
-     <input type="checkbox" />
-    <span></span>
-    <span></span>
-    <span></span>
-    
    
+    <input type="checkbox" />
+    
+    <span></span>
+    <span></span>
+    <span></span>
+  
     <ul id="menu">
-    <a href="addExpense.jsp"><li>Add Expense</li></a>
-					<a href="expenses"><li>View Expense</li></a>
-					<a href="dashboard.jsp"><li>DashBoard</li></a>
+      <a href="addExpense.jsp"><li>Add Expense</li></a>
+      <a href="expenses"><li>View  Expense</li></a>
+      <a href="dashboard.jsp"><li>DashBoard</li></a>
+      
     </ul>
   </div>
 </nav>
-	<div class="container jumbotron" style="margin:0px;width: 100%;padding: 0px">
-		<div class="row" style="background-color: white">
-			<h2 id="header"><strong>MONEY MANAGER</strong></h2>
-
-			<div id="menuToggle">
-				<input type="checkbox" /> <span></span> <span></span> <span></span>
-				<ul id="menu">
-					<a href="addExpense.jsp"><li>Add Expense</li></a>
-					<a href="expenses"><li>View Expense</li></a>
-					<a href="dashboard.jsp"><li>DashBoard</li></a>
-
-				</ul>
-
-			</div>
-		</div>
-	</div>
 </body>
 </html>

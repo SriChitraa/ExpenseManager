@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Insert title here</title>
 <style>
+
 body
 {
   margin: 0;
@@ -15,14 +16,25 @@ body
   color: #cdcdcd;
   font-family: "Avenir Next", "Avenir", sans-serif;
 }
-
+#header{
+text-align: center;
+padding:30px;
+font-size: x-large; 
+color: white;
+margin:0px;
+background-color:#073b4c;
+}
 #menuToggle
 {
   display: block;
   position: relative;
-  top: 50px;
+  top: -55px;
   left: 50px;
   
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #menuToggle a
@@ -33,10 +45,9 @@ body
   transition: color 0.3s ease;
 }
 
-#menuToggle li:hover
+#menuToggle a:hover
 {
-   background-color: black;
-  color: #ddd;
+  color: tomato;
 }
 
 
@@ -51,12 +62,11 @@ body
   
   cursor: pointer;
   
-  opacity: 0;
+  opacity: 0; 
   z-index: 2; 
   
   -webkit-touch-callout: none;
 }
-
 
 #menuToggle span
 {
@@ -64,25 +74,36 @@ body
   width: 33px;
   height: 4px;
   margin-bottom: 5px;
-  position: relative;  
+  position: relative;
+  
   background: #cdcdcd;
   border-radius: 3px;
   
   z-index: 1;
   
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
 }
 
 #menu
 {
   position: absolute;
-  width: 300px;
+  width: 200px;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-  list-style-type: none;
+  
   background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  
+  
   transform-origin: 0% 0%;
-  transform: translate(-100%, 0);  
+  transform: translate(-100%, 0);
+  
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
@@ -92,31 +113,30 @@ body
   font-size: 22px;
 }
 
-
 #menuToggle input:checked ~ ul
 {
   transform: none;
 }
-
 </style>
 </head>
 <body>
-<nav role="navigation">
-  <div id="menuToggle">
-   
-    <input type="checkbox" />
-    
-    <span></span>
-    <span></span>
-    <span></span>
-  
-    <ul id="menu">
-      <a href="addExpense.jsp"><li>Add Expense</li></a>
-      <a href="expenses"><li>View  Expense</li></a>
-      <a href="dashboard.jsp"><li>DashBoard</li></a>
-      
-    </ul>
-  </div>
-</nav>
+	
+			<nav role="navigation">
+				<h2 id="header">
+				<strong>MONEY MANAGER</strong>
+			</h2>
+				<div id="menuToggle">
+					<input type="checkbox" /> <span></span> <span></span> <span></span>
+
+
+					<ul id="menu">
+						<a href="addExpense.jsp"><li>Add Expense</li></a>
+						<a href="expenses"><li>View Expense</li></a>
+						<a href="dashboard.jsp"><li>DashBoard</li></a>
+					</ul>
+				</div>
+			</nav>
+
+	
 </body>
 </html>

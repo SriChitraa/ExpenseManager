@@ -108,21 +108,6 @@ background-color:#073b4c;
 </style>
 </head>
 <body>
-<nav role="navigation">
-  <div id="menuToggle">
-     <input type="checkbox" />
-    <span></span>
-    <span></span>
-    <span></span>
-    
-   
-    <ul id="menu">
-    <a href="addExpense.jsp"><li>Add Expense</li></a>
-					<a href="expenses"><li>View Expense</li></a>
-					<a href="dashboard.jsp"><li>DashBoard</li></a>
-    </ul>
-  </div>
-</nav>
 	<div class="container jumbotron" style="margin:0px;width: 100%;padding: 0px">
 		<div class="row" style="background-color: white">
 			<h2 id="header"><strong>MONEY MANAGER</strong></h2>

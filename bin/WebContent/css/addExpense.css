@@ -1,0 +1,13 @@
+@charset "ISO-8859-1";
+.form-inline{
+      margin: 0 auto;
+      display: table;
+      max-width:100px;
+      }
+      
+      .form-group{
+      padding: 10px;
+      }
+     .col-sm-offset-5, .col-sm-5{
+      margin-left: 400px;
+      }
