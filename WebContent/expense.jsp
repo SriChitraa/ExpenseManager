@@ -73,7 +73,7 @@ String endDate = filters.get(2);
     <div class="form-group">
      <input type="date" class="form-control" id="endDate" style="width: 160px" value="<%=endDate %>" placeholder="End Date" name="endDate" required>
     </div>
-    <button onclick="checkDates()" style="width: 160px" class="btn btn-default" >Search</button>
+    <button onclick="checkDates()" id="search" style="width: 160px" class="btn btn-default" >Search</button>
 <h2></h2>		
 <table  border = "1" style = "text-align:center">
 <tr>
@@ -102,7 +102,15 @@ for(Expense data:expenses) {
 <h2></h2>
 <button type="submit" style="width: 200px" class="btn btn-default"  name="action" onclick="form.action='addExpense.jsp';">Add Expense</button>
  
-
+<script>
+$(document).ready(function(){
+  $("#search").click(function(){
+	  $.get("expenses", function(data, status){
+	      alert("Data: " + data + "\nStatus: " + status);
+	  });
+  });
+});
+</script>
 </form>
 </div>
 </body>
