@@ -1,12 +1,15 @@
 package com.expensemanager.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.expensemanager.datastore.ExpenseDS;
 import com.expensemanager.model.Expense;
+import com.google.gson.Gson;
 
 /**
  * Servlet implementation class ExpenseServlet
@@ -49,12 +53,19 @@ public class ExpenseServlet extends HttpServlet {
 		filter.add(endDate);
 		request.setAttribute("filter", filter);
 
-		int userId = (int) request.getSession().getAttribute("user_id");
+		int userId = 1;
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
 			ArrayList<Expense> expenses = expenseDS.getExpenses(userId, category, startDate, endDate);
-			request.setAttribute("expenses", expenses);
-			request.getRequestDispatcher("/expense.jsp").forward(request, response);
+			
+			
+			 PrintWriter out = response.getWriter();
+		        response.setContentType("application/json");
+		        response.setCharacterEncoding("UTF-8");
+		        HashMap<String,ArrayList<Expense>> expensesMap = new HashMap<>();
+		        expensesMap.put("data", expenses);
+		        out.print(new Gson().toJson(expensesMap));
+		        out.flush();    
 		} catch (Exception e) {
 			e.printStackTrace();
 		}	

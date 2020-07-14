@@ -19,6 +19,11 @@
 <link href="css/expense.css" type="text/css" rel="stylesheet" />
 <title>Insert title here</title>
 <script>
+$(document).ready(function() {
+    $('#expense').DataTable( {
+        "ajax": 'expenses/expense.txt'
+    } );
+} );
 	function checkDates() {	
 	
 		var startDate = Date.parse(document.getElementById("startDate").value);
@@ -26,11 +31,16 @@
 		var endDate = Date.parse(document.getElementById("endDate").value);
 		if (startDate > endDate) {
 			alert("Check End Date");
-		}
-		if(category = "Select"){
-			alert("Please select a category!");
-		}
+		
 	}
+		 $.get("expenses", function(responseText) {
+       	  $('#expense').DataTable( {
+       	        "ajax": 'expenses/expense.txt'
+       	    } );
+       	
+           $("#form").text(responseText);            
+       });                
+   }
 </script>
 <%@ include file = "header.jsp" %>
 <title>Insert title here</title>
@@ -38,7 +48,7 @@
 <body>
 <div class="container">
 <h2></h2>
-<form class="form-inline" action = "expenses">
+<form class="form-inline" id = "form" >
 <div class="form-group">
 <% 
 Object filter = request.getAttribute("filter");
@@ -75,7 +85,7 @@ String endDate = filters.get(2);
     </div>
     <button onclick="checkDates()" id="search" style="width: 160px" class="btn btn-default" >Search</button>
 <h2></h2>		
-<table  border = "1" style = "text-align:center">
+<table id="expense"  border = "1" style = "text-align:center">
 <tr>
 <th>Date</th>
 <th>Time</th>
@@ -83,34 +93,10 @@ String endDate = filters.get(2);
 <th>Amount</th>
 <th>Content</th>
 </tr>
-<% 
-Object expense = request.getAttribute("expenses");
-ArrayList<Expense> expenses = new ArrayList<Expense>();
-expenses = (ArrayList<Expense>)expense;
-for(Expense data:expenses) {
-%>
-<tr>
-<td><%= data.getDate()%></td>
-<td><%=data.getTime() %></td>
-<td><%=data.getCategory() %></td>
-<td><%=data.getAmount() %></td>
-<td><%=data.getContent() %></td>
-</tr>
-<%}
-%>
 </table>
 <h2></h2>
 <button type="submit" style="width: 200px" class="btn btn-default"  name="action" onclick="form.action='addExpense.jsp';">Add Expense</button>
- 
-<script>
-$(document).ready(function(){
-  $("#search").click(function(){
-	  $.get("expenses", function(data, status){
-	      alert("Data: " + data + "\nStatus: " + status);
-	  });
-  });
-});
-</script>
+
 </form>
 </div>
 </body>
