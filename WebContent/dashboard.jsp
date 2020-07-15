@@ -55,7 +55,7 @@ window.onload = function() {
 			<div class="col-sm-offset-4 col-sm-4" style="background-color: white; padding: 0px">
 				<form class="form-inline" name="form">
 					<input type="submit" name="action" 	value="Add Expense" onclick="form.action='addExpense.jsp';"/>					
-					<input	type="submit" name="action"	 value="View Expenses" onclick="form.action='expenses';" />
+					<input	type="submit" name="action" id="btnSubmit" value="View Expenses" onclick="form.action='viewExpense.jsp';" />
 				</form>
 			</div>
 		</div>
