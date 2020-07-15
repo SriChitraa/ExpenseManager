@@ -28,7 +28,7 @@ background-color:#073b4c;
   position: relative;
   top: -60px;
   left: 50px;
-  
+  width: fit-content;
 }
 
 #menuToggle a
@@ -124,7 +124,7 @@ background-color:#073b4c;
   </div>
 </nav>
 	<div class="container jumbotron" style="margin:0px;width: 100%;padding: 0px">
-		<div class="row" style="background-color: white">
+		<div class="row" style="background-color: white;margin: 0px">
 			<h2 id="header"><strong>MONEY MANAGER</strong></h2>
 
 			<div id="menuToggle">
