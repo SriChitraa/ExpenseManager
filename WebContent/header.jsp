@@ -82,7 +82,7 @@ background-color:#073b4c;
 {
 
   position: absolute;
-  width: 200px;
+  width: 180px;
   margin: 33px 0 0 -50px;
   padding: 30px;
   list-style-type: none;
@@ -131,7 +131,7 @@ background-color:#073b4c;
 				<input type="checkbox" /> <span></span> <span></span> <span></span>
 				<ul id="menu">
 					<a href="addExpense.jsp"><li>Add Expense</li></a>
-					<a href="expenses"><li>View Expense</li></a>
+					<a href="viewExpense.jsp"><li>View Expense</li></a>
 					<a href="dashboard.jsp"><li>DashBoard</li></a>
 
 				</ul>
