@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,8 +54,7 @@ public class ExpenseServlet extends HttpServlet {
 		int userId = 1;
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
-			ArrayList<Expense> expenses = expenseDS.getExpenses(userId, category, startDate, endDate);
-			
+			ArrayList<Expense> expenses = expenseDS.getExpenses(userId, category, startDate, endDate);	
 			
 			 PrintWriter out = response.getWriter();
 		        response.setContentType("application/json");

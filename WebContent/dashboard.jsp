@@ -20,29 +20,30 @@ String expenses = (String)expense;
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <link href="css/dashboard.css" type="text/css" rel="stylesheet" />
 <script>
-window.onload = function() { 
-	 
-	var chart = new CanvasJS.Chart("chartContainer", {
-		theme: "light2",
-		animationEnabled: true,
-		exportFileName: "New Year Resolutions",
-		exportEnabled: true,
-		title:{
-			text: "Top Categories"
-		},
-		data: [{
-			type: "pie",
-			showInLegend: true,
-			legendText: "{category}",
-			toolTipContent: "{category}: <strong>{y}</strong>",
-			indexLabel: "{category} {y}",
-			dataPoints : <%out.print(expenses);%>
-		}]
-	});
-	 
-	chart.render();
-	 
-	}
+$(document).ready(function() {
+    
+    $.getJSON( "expense-summary",function(dataPoints){
+    var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "light2",
+        animationEnabled: true,
+        exportFileName: "Expense by category",
+        exportEnabled: true,
+        title: {
+            text: "Categories"
+        },
+        data: [{
+            type: "pie",
+            showInLegend: true,
+            legendText: "{category}",
+            toolTipContent: "{category}: <strong>{y}</strong>",
+            indexLabel: "{category} {y}",
+            dataPoints: dataPoints
+        }]
+    });
+    chart.render();
+    });
+});
+
 </script>
 
 <%@ include file="header.jsp" %>

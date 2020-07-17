@@ -56,15 +56,8 @@ public class LoginServlet extends HttpServlet {
 		session.setAttribute("user_id", userId);
 		
 		if (password.equals(userPassword)) {
-
 			try {
-				ExpenseDS expenseDS = new ExpenseDS();
-				ArrayList<Expense> expenses = expenseDS.getExpenseForChart(userId);
-				ArrayList<ExpenseDTO> expenseDTOs = convertToDTO(expenses);
-				String dataPoints = new Gson().toJson(expenseDTOs);
-				request.setAttribute("expenses", dataPoints);
 				request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
-
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -74,14 +67,5 @@ public class LoginServlet extends HttpServlet {
 
 	}
 
-		private ArrayList<ExpenseDTO> convertToDTO(List<Expense> expenses) {
-			ArrayList<ExpenseDTO> expenseDTOs = new ArrayList<>();
-			ExpenseDTO expenseDTO;
-			for (Expense expense : expenses) {
-				expenseDTO = new ExpenseDTO(expense.getCategory(), expense.getAmount());
-				expenseDTOs.add(expenseDTO);
-			}
-			return expenseDTOs;
-		}				
-	}
+}
 
