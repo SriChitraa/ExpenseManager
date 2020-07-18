@@ -11,12 +11,19 @@
 <link href="css/addExpense.css" type="text/css" rel="stylesheet" />
 <title>Insert title here</title>
 <script>
-$(document).ready(function(){
-	$("#submit").click(function(){
-	  $.post( "expenses" ) {
-		 alert("Expense added!");
-		};
-	});
+$(document).ready(function() {
+    $("#submit").click(function(e) {
+    	e.preventDefault();
+        $.post("expenses", {
+            "date": $("input[name=date]").val(),
+            "time":$("input[name=time]").val(),
+            "category": $("select[name=category]").val(),
+            "amount": $("input[name=amount]").val(),
+            "content": $("input[name=content]").val(),
+        }, function(data) {
+            alert("Status: " + data["success"]);
+        });
+    });
 });
 </script>
 <%@ include file="header.jsp" %>
