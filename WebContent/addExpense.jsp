@@ -12,7 +12,32 @@
 <title>Insert title here</title>
 <script>
 $(document).ready(function() {
+	  
     $("#submit").click(function(e) {
+
+   		var date= $("input[name=date]").val();
+			var time= $("input[name=time]").val();
+   		var category= $("select[name=category]").val();
+			var amount= $("input[name=amount]").val();
+			var content= $("input[name=content]").val();
+	
+
+   	    if (date  == '') {
+   	        alert('Please fill out date field');
+   	        return false;
+    }else if(time  == ''){
+    	 alert('Please fill out time field');
+	        return false;
+    }else if(category  == 'Select'){
+	 alert('Please fill out category field');
+     return false;
+}else if(amount  == ''){
+   	 alert('Please fill out amount field');
+     return false;
+}else if(content  == ''){
+	 alert('Please fill out content field');
+     return false;
+}
     	e.preventDefault();
         $.post("expenses", {
             "date": $("input[name=date]").val(),
@@ -23,6 +48,7 @@ $(document).ready(function() {
         }, function(data) {
             alert("Status: " + data["success"]);
         });
+     
     });
 });
 </script>
@@ -48,7 +74,7 @@ $(document).ready(function() {
 						<label class="control-label col-sm-6" style="text-align: left">Category:</label>
 						<div class="col-sm-6">
 							<div class="drop-down">
-								<select name="category" class="form-control"
+								<select name="category" id = "category" class="form-control"
 									style="width: 200px" id="category" required>
 									<option>Select</option>
 									<option>Investment</option>
