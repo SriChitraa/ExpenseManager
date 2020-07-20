@@ -12,45 +12,56 @@
 <title>Insert title here</title>
 <script>
 $(document).ready(function() {
-	  
+
     $("#submit").click(function(e) {
 
-   		var date= $("input[name=date]").val();
-			var time= $("input[name=time]").val();
-   		var category= $("select[name=category]").val();
-			var amount= $("input[name=amount]").val();
-			var content= $("input[name=content]").val();
-	
+            var date = $("input[name=date]").val();
+            var time = $("input[name=time]").val();
+            var category = $("select[name=category]").val();
+            var amount = $("input[name=amount]").val();
+            var content = $("input[name=content]").val();
 
-   	    if (date  == '') {
-   	        alert('Please fill out date field');
-   	        return false;
-    }else if(time  == ''){
-    	 alert('Please fill out time field');
-	        return false;
-    }else if(category  == 'Select'){
-	 alert('Please fill out category field');
-     return false;
-}else if(amount  == ''){
-   	 alert('Please fill out amount field');
-     return false;
-}else if(content  == ''){
-	 alert('Please fill out content field');
-     return false;
-}
-    	e.preventDefault();
-        $.post("expenses", {
-            "date": $("input[name=date]").val(),
-            "time":$("input[name=time]").val(),
-            "category": $("select[name=category]").val(),
-            "amount": $("input[name=amount]").val(),
-            "content": $("input[name=content]").val(),
-        }, function(data) {
-            alert("Status: " + data["success"]);
-        });
-     
+
+            if (date == '') {
+                alert('Please fill out date field');
+                return false;
+            } else if (time == '') {
+                alert('Please fill out time field');
+                return false;
+            } else if (category == 'Select') {
+                alert('Please fill out category field');
+                return false;
+            } else if (amount == '') {
+                alert('Please fill out amount field');
+                return false;
+            } else if (content == '') {
+                alert('Please fill out content field');
+                return false;
+            }
+            e.preventDefault();
+            $.post("expenses", {
+                    "date": $("input[name=date]").val(),
+                    "time": $("input[name=time]").val(),
+                    "category": $("select[name=category]").val(),
+                    "amount": $("input[name=amount]").val(),
+                    "content": $("input[name=content]").val(),
+                }, function(data) {
+                   if(data["success"]){
+                	   $("#success-message").removeClass("hide");
+                	   $("#success-message").addClass("show");
+                	   resetForm();
+                   }else{
+                	   $("#error-message").removeClass("hide");
+                	   $("#error-message").addClass("show");
+                   }
+                   
+                });
+
+            });
     });
-});
+function resetForm() {
+	$("#reset").click();
+}
 </script>
 <%@ include file="header.jsp" %>
 </head>
@@ -58,7 +69,7 @@ $(document).ready(function() {
 	<div class="container jumbotron" style="background-color: white; padding: 0px; margin: 0px; border: 0px">
 		<div class="row" style="background-color: white">
 			<div class="col-sm-offset-5 col-sm-5"style="background-color: white; padding: 0px">
-				<form class="form-inline" style="padding: 10px" name="form"	>
+				<form class="form-inline" style="padding: 10px" id="form" name="form"	>
 					<div class="form-group">
 						<label class="control-label col-sm-6" style="text-align: left">Date:</label>
 						<div class="col-sm-6"><input type="date" class="form-control" style="width: 200px"	name="date" required/>
@@ -110,6 +121,12 @@ $(document).ready(function() {
 						<div class="col-sm-offset-8 col-sm-8" style="text-align: left">
 							<input type="reset" class="btn btn-default" id="reset" name="submit" value="Reset" />
 						</div>
+					</div>
+					<div id="success-message" class="alert alert-success hide">
+						<strong>Success </strong> Expense added!
+					</div>
+					<div id="error-message" class="alert alert-danger hide">
+						<strong>Error</strong> Unexpected error occurred!
 					</div>
 				</form>
 			</div>

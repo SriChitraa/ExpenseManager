@@ -41,8 +41,10 @@ public class ExpenseServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ArrayList<String> filter = new ArrayList<>();
-		String category = request.getParameter("category");		
+		String category = request.getParameter("category") == null ? "All" : request.getParameter("category");		
+		if ( "All".equals(category)) {
+			 category = null;
+		}
 		String startDate = request.getParameter("startDate") == null ? getMonthStartDate()
 				: request.getParameter("startDate");
 		String endDate = request.getParameter("endDate") == null ? getMonthEndDate() : request.getParameter("endDate");

@@ -11,3 +11,10 @@
      .col-sm-offset-5, .col-sm-5{
       margin-left: 400px;
       }
+ .show{
+ 	display: "block";
+ }
+ 
+ .hide{
+ 	display: "none";
+ }
