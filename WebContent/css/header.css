@@ -1,9 +1,10 @@
 @charset "ISO-8859-1";
-#header{
-text-align: center;
-padding:30px;
-font-size: x-large; 
-color: white;
-margin:0px;
-background-color:#073b4c;
+
+#header {
+	text-align: center;
+	padding: 30px;
+	font-size: x-large;
+	color: white;
+	margin: 0px;
+	background-color: #073b4c;
 }

@@ -20,24 +20,11 @@ $(document).ready(function() {
             var category = $("select[name=category]").val();
             var amount = $("input[name=amount]").val();
             var content = $("input[name=content]").val();
-
-
-            if (date == '') {
-                alert('Please fill out date field');
-                return false;
-            } else if (time == '') {
-                alert('Please fill out time field');
-                return false;
-            } else if (category == 'Select') {
-                alert('Please fill out category field');
-                return false;
-            } else if (amount == '') {
-                alert('Please fill out amount field');
-                return false;
-            } else if (content == '') {
-                alert('Please fill out content field');
-                return false;
-            }
+			
+            if(date == "" || time == "" || category == "Select" || amount == "" || content == "" ) {
+            	alert("All Fields are Required");
+        		return false;
+        	}
             e.preventDefault();
             $.post("expenses", {
                     "date": $("input[name=date]").val(),
