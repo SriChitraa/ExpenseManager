@@ -12,7 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 <%
 if(request.getAttribute("username")!=null){
 request.setAttribute("username",null);

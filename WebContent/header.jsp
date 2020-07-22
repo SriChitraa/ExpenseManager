@@ -17,7 +17,7 @@
 			 <span></span>
 			<ul id="menu">
 				<a href="addExpense.jsp"><li>Add Expense</li></a>
-				<a href="expenses"><li>View Expense</li></a>
+				<a href="viewExpense.jsp"><li>View Expense</li></a>
 				<a href="dashboard.jsp"><li>DashBoard</li></a>
 			</ul>
 		</div>

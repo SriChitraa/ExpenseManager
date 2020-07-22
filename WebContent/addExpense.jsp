@@ -10,50 +10,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link href="css/addExpense.css" type="text/css" rel="stylesheet" />
 <title>Insert title here</title>
-<script>
-$(document).ready(function() {
-
-    $("#submit").click(function(e) {
-
-        var date = $("input[name=date]").val();
-        var time = $("input[name=time]").val();
-        var category = $("select[name=category]").val();
-        var amount = $("input[name=amount]").val();
-        var content = $("input[name=content]").val();
-
-        if (date == "" || time == "" || category == "Select" || amount == "" || content == "") {
-            alert("All Fields are Required");
-            return false;
-        }
-        e.preventDefault();
-        $.post("expenses", {
-            "date": $("input[name=date]").val(),
-            "time": $("input[name=time]").val(),
-            "category": $("select[name=category]").val(),
-            "amount": $("input[name=amount]").val(),
-            "content": $("input[name=content]").val(),
-        }, function(data) {
-            if (data["success"]) {
-                $("#success-message").removeClass("hide");
-                $("#success-message").addClass("show");
-                resetForm();
-            } else {
-                $("#error-message").removeClass("hide");
-                $("#error-message").addClass("show");
-            }
-
-        });
-
-    });
-});
-
-function resetForm() {
-    $("#reset").click();
-}
-</script>
 <%@ include file="header.jsp" %>
 </head>
 <body>
+<script type="text/javascript" src="js/addExpense.js"></script>
 	<div class="container jumbotron" style="background-color: white; padding: 0px; margin: 0px; border: 0px">
 		<div class="row" style="background-color: white">
 			<div class="col-sm-offset-5 col-sm-5"style="background-color: white; padding: 0px">
@@ -68,7 +28,6 @@ function resetForm() {
 						<div class="col-sm-6"><input type="time" class="form-control" style="width: 200px" name="time" required/>
 						</div>
 					</div>
-
 					<div class="form-group">
 						<label class="control-label col-sm-6" style="text-align: left">Category:</label>
 						<div class="col-sm-6">
