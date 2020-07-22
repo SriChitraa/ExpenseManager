@@ -1,9 +1,6 @@
 package com.expensemanager.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,11 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.expensemanager.datastore.LoginDS;
-import com.expensemanager.datastore.ExpenseDS;
-import com.expensemanager.model.Expense;
 import com.expensemanager.model.User;
-import com.expensemanager.model.dto.ExpenseDTO;
-import com.google.gson.Gson;
 
 /**
  * Servlet implementation class LoginServlet
