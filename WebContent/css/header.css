@@ -16,8 +16,8 @@ body {
 
 #menuToggle {
 	position: relative;
-	top: -60px !important;
-	left: 50px !important;
+	top: -60px;
+	left: 50px;
 	width: fit-content;
 }
 
