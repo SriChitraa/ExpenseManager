@@ -1,78 +1,86 @@
 @charset "ISO-8859-1";
 body {
-	margin: 0;
-	padding: 0;
-	font-family: "Avenir Next", "Avenir", sans-serif;
-}
+	
 
-#header {
-	text-align: center;
-	padding: 30px;
-	font-size: x-large;
-	color: white;
-	margin: 0px;
-	background-color: #073b4c;
+  margin: 0;
+  padding: 0;
+  
+  font-family: "Avenir Next", "Avenir", sans-serif;
 }
-
-#menuToggle {
-	position: relative;
-	top: -60px;
-	left: 50px;
-	width: fit-content;
+#header{
+text-align: center;
+padding:30px;
+font-size: x-large; 
+color: white;
+margin:0px;
+background-color:#073b4c;
 }
-
-#menuToggle a {
-	text-decoration: none;
-	color: #232323;
-	transition: color 0.3s ease;
+#menuToggle
+{
+  position: relative;
+  top: -60px;
+  left: 50px;
+  width: fit-content;
 }
-
-#menuToggle li: hover {
-	background-color: black;
-	color: #ddd;
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
 }
-
-#menuToggle input {
-	display: block;
-	width: 40px;
-	height: 32px;
-	position: absolute;
-	top: -7px;
-	left: -5px;
-	cursor: pointer;
-	opacity: 0;
-	z-index: 2;
-	-webkit-touch-callout: none;
+#menuToggle li:hover
+{
+   background-color: black;
+  color: #ddd;
 }
-
-#menuToggle span {
-	display: block;
-	width: 33px;
-	height: 4px;
-	margin-bottom: 5px;
-	position: relative;
-	background: #cdcdcd;
-	border-radius: 3px;
-	z-index: 1;
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0;
+  z-index: 2; 
+  
+  -webkit-touch-callout: none;
 }
-
-#menu {
-	position: absolute;
-	width: 180px;
-	margin: 33px 0 0 -50px;
-	padding: 30px;
-	list-style-type: none;
-	background: #ededed;
-	transform-origin: 0% 0%;
-	transform: translate(-100%, 0);
-	transition: transform 0.5 s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
 }
-
-#menu li {
-	padding: 10px 0;
-	font-size: 15px;
+#menu
+{
+  position: absolute;
+  width: 180px;
+  margin: 33px 0 0 -50px;
+  padding: 30px;
+  list-style-type: none;
+  background: #ededed;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
-
-#menuToggle input: checked~ul {
-	transform: none;
+#menu li
+{
+  padding: 10px 0;
+  font-size: 15px;
+}
+#menuToggle input:checked ~ ul
+{
+  transform: none;
 }

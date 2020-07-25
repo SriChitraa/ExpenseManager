@@ -45,7 +45,7 @@
 			<button id="search" style="width: 160px" class="btn btn-default">Search</button>
 			<h2></h2>
 			<table id="example" class="display" cellspacing="0"
-				style="margin-left: 80px" width="75%">
+				style="margin-left: 80px; padding-top: 14px" width="75%">
 				<thead>
 					<tr>
 						<th>Date</th>
