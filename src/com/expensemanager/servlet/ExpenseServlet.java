@@ -49,7 +49,7 @@ public class ExpenseServlet extends HttpServlet {
 				: request.getParameter("startDate");
 		String endDate = request.getParameter("endDate") == null ? getMonthEndDate() : request.getParameter("endDate");
 
-		int userId = 1;
+		int userId = Integer.parseInt(request.getParameter("userId"));
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
 			ArrayList<Expense> expenses = expenseDS.getExpenses(userId, category, startDate, endDate);
@@ -89,7 +89,7 @@ public class ExpenseServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int userId = 1;
+		int userId = Integer.parseInt(request.getParameter("userId"));
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
 		String category = request.getParameter("category");

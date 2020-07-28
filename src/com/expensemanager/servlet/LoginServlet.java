@@ -6,8 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.expensemanager.datastore.LoginDS;
 import com.expensemanager.model.User;
 
@@ -41,12 +39,11 @@ public class LoginServlet extends HttpServlet {
 
 		String uname = request.getParameter("username");
 		String password = request.getParameter("password");
-		HttpSession session = request.getSession();
 		LoginDS loginDS = new LoginDS();
 		User user = loginDS.getUser(uname);
 		int userId = user.getId();
 		String userPassword = user.getPassword();
-		session.setAttribute("user_id", userId);
+		request.setAttribute("currentSessionUser", uname);
 		
 		if (password.equals(userPassword)) {
 			try {

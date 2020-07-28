@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="com.expensemanager.model.Expense"%>
+<%@page import="com.expensemanager.datastore.LoginDS"%>
+<%@page import="com.expensemanager.model.User"%>
 <%@page import="java.util.*"%>   
 <%@ page import="com.google.gson.Gson"%>
 <%@ page import="com.google.gson.JsonObject"%>  
@@ -22,6 +24,15 @@ String expenses = (String)expense;
 <title>Dashboard</title>
 </head>
 <body>
+<% 
+	String uname = (String)request.getAttribute("currentSessionUser");
+	LoginDS loginDS = new LoginDS();
+	User user = loginDS.getUser(uname);	
+	if (user != null) {
+		int userId = user.getId(); 
+		System.out.print(userId);
+		System.out.print(uname);
+} %>
 <script type="text/javascript" src="js/dashboard.js"></script>
 <div id="chartContainer" style="height: 370px; margin-left:200px;margin-right:  200px"></div>
 	<div class="container jumbotron" style="background-color: white">
