@@ -25,11 +25,13 @@ String expenses = (String)expense;
 </head>
 <body>
 <script type="text/javascript" src="js/dashboard.js"></script>
+<%int userId = (Integer)request.getAttribute("currentSessionUser"); %>
 <div id="chartContainer" style="height: 370px; margin-left:200px;margin-right:  200px"></div>
 	<div class="container jumbotron" style="background-color: white">
 		<div class="row" style="background-color: white">
 			<div class="col-sm-offset-4 col-sm-4" style="background-color: white; padding: 0px">
 				<form class="form-inline" name="form">
+					<input	type="hidden" name="user_id" id="user_id" value=<%=userId%>>
 					<input type="submit" name="action" 	value="Add Expense" onclick="form.action='addExpense.jsp';"/>					
 					<input	type="submit" name="action" id="btnSubmit" value="View Expenses" onclick="form.action='viewExpense.jsp';" />
 				</form>

@@ -35,7 +35,7 @@ public class ExpenseSummaryServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int userId = 1;
+		int userId = Integer.parseInt(request.getParameter("user_id"));
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
 			ArrayList<Expense> expenses = expenseDS.getExpenseForChart(userId);

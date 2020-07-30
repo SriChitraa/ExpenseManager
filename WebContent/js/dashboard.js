@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $.getJSON("expense-summary", function(dataPoints) {
+    $.getJSON("expense-summary?user_id="+$("#user_id").val(), function(dataPoints) {
         var chart = new CanvasJS.Chart("chartContainer", {
             theme: "light2",
             animationEnabled: true,

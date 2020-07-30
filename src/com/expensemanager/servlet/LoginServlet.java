@@ -43,8 +43,8 @@ public class LoginServlet extends HttpServlet {
 		User user = loginDS.getUser(uname);
 		int userId = user.getId();
 		String userPassword = user.getPassword();
-		request.setAttribute("currentSessionUser", uname);
-		
+		request.setAttribute("currentSessionUser", userId);
+				
 		if (password.equals(userPassword)) {
 			try {
 				request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
