@@ -24,15 +24,6 @@ String expenses = (String)expense;
 <title>Dashboard</title>
 </head>
 <body>
-<% 
-	String uname = (String)request.getAttribute("currentSessionUser");
-	LoginDS loginDS = new LoginDS();
-	User user = loginDS.getUser(uname);	
-	if (user != null) {
-		int userId = user.getId(); 
-		System.out.print(userId);
-		System.out.print(uname);
-} %>
 <script type="text/javascript" src="js/dashboard.js"></script>
 <div id="chartContainer" style="height: 370px; margin-left:200px;margin-right:  200px"></div>
 	<div class="container jumbotron" style="background-color: white">

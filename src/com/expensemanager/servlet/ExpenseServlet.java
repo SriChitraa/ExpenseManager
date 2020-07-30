@@ -49,7 +49,7 @@ public class ExpenseServlet extends HttpServlet {
 				: request.getParameter("startDate");
 		String endDate = request.getParameter("endDate") == null ? getMonthEndDate() : request.getParameter("endDate");
 
-		int userId = Integer.parseInt(request.getParameter("userId"));
+		int userId =1;
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
 			ArrayList<Expense> expenses = expenseDS.getExpenses(userId, category, startDate, endDate);

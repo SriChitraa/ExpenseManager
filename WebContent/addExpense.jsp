@@ -16,14 +16,6 @@
 </head>
 <body>
 <script type="text/javascript" src="js/addExpense.js"></script>
-<% LoginDS loginDS = new LoginDS();
-	String uname = (String)request.getAttribute("currentSessionUser");
-	User user = loginDS.getUser(uname);	
-	if (user != null) {
-		int userId = user.getId(); 
-		System.out.print(userId);
-		System.out.print(uname);
-} %>
 	<div class="container jumbotron" style="background-color: white; padding: 0px; margin: 0px; border: 0px">
 		<div class="row" style="background-color: white">
 			<div class="col-sm-offset-5 col-sm-5"style="background-color: white; padding: 0px">

@@ -16,14 +16,6 @@
 </head>
 <body>
 	<script type="text/javascript" src="js/viewExpense.js"></script>
-	<% LoginDS loginDS = new LoginDS();
-	String uname = (String)request.getAttribute("currentSessionUser");
-	User user = loginDS.getUser(uname);	
-	if (user != null) {
-		int userId = user.getId();  
-		System.out.print(userId);
-		System.out.print(uname);
-} %>
 	<div class="container">
 		<h2></h2>
 		<form class="form-inline" id="form">
@@ -53,7 +45,6 @@
 				<input type="date" class="form-control" id="endDate" placeholder="End Date" name="endDate" required>
 			</div>
 			<button id="search" style="width: 160px" class="btn btn-default">Search</button>
-			<input type="hidden" name="userId" value="${User.getId()}">
 			<h2></h2>
 			<table id="example" class="display" cellspacing="0"
 				style="margin-left: 80px; padding-top: 14px" width="75%">
