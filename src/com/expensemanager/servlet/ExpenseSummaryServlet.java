@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,7 +36,10 @@ public class ExpenseSummaryServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int userId = Integer.parseInt(request.getParameter("user_id"));
+		 
+		String uId = request.getParameter("userId");
+		
+		int userId = Integer.parseInt(uId);
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
 			ArrayList<Expense> expenses = expenseDS.getExpenseForChart(userId);

@@ -25,7 +25,13 @@ String expenses = (String)expense;
 </head>
 <body>
 <script type="text/javascript" src="js/dashboard.js"></script>
-<%int userId = (Integer)request.getAttribute("currentSessionUser"); %>
+
+<% String uId = (String)request.getAttribute("currentSessionUser");
+int userId = Integer.parseInt(uId); 
+Cookie ck=new Cookie("userId",uId);  
+response.addCookie(ck);
+%>
+
 <div id="chartContainer" style="height: 370px; margin-left:200px;margin-right:  200px"></div>
 	<div class="container jumbotron" style="background-color: white">
 		<div class="row" style="background-color: white">
