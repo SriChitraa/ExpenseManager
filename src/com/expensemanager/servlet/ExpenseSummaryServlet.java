@@ -36,10 +36,11 @@ public class ExpenseSummaryServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
-		String uId = request.getParameter("userId");
-		
-		int userId = Integer.parseInt(uId);
+		Cookie ck[]=request.getCookies();  
+		String uId = ck[0].getValue();
+		int userId = Integer.valueOf(uId);
+		System.out.print(userId);
+
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
 			ArrayList<Expense> expenses = expenseDS.getExpenseForChart(userId);

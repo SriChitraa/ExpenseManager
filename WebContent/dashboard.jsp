@@ -26,8 +26,8 @@ String expenses = (String)expense;
 <body>
 <script type="text/javascript" src="js/dashboard.js"></script>
 
-<% String uId = (String)request.getAttribute("currentSessionUser");
-int userId = Integer.parseInt(uId); 
+<% String uId = String.valueOf(request.getAttribute("currentSessionUser"));
+int userId = Integer.valueOf(uId);
 Cookie ck=new Cookie("userId",uId);  
 response.addCookie(ck);
 %>
