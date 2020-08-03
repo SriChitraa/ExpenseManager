@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.expensemanager.datastore.LoginDS;
 import com.expensemanager.model.User;
-
+import static com.expensemanager.constant.Constants.COOKIE_USER_ID;
 /**
  * Servlet implementation class LoginServlet
  */
@@ -46,8 +46,8 @@ public class LoginServlet extends HttpServlet {
 		String userPassword = user.getPassword();
 		
 		String uId = String.valueOf(userId);		 
-		Cookie ck=new Cookie("userId",uId);
-		System.out.print(userId);
+		Cookie ck=new Cookie(COOKIE_USER_ID,uId);
+	
 		response.addCookie(ck);
 				
 		if (password.equals(userPassword)) {

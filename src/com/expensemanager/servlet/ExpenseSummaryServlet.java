@@ -39,8 +39,7 @@ public class ExpenseSummaryServlet extends HttpServlet {
 		Cookie ck[]=request.getCookies();  
 		String uId = ck[0].getValue();
 		int userId = Integer.valueOf(uId);
-		System.out.print(userId);
-
+		
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
 			ArrayList<Expense> expenses = expenseDS.getExpenseForChart(userId);
@@ -49,8 +48,7 @@ public class ExpenseSummaryServlet extends HttpServlet {
 	        response.setContentType("application/json");
 	        response.setCharacterEncoding("UTF-8");	        
 	        out.print(new Gson().toJson(expenseDTOs));
-	        out.flush(); 
-			
+	        out.flush(); 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}	

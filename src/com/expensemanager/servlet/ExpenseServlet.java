@@ -49,7 +49,6 @@ public class ExpenseServlet extends HttpServlet {
 		String startDate = request.getParameter("startDate") == null ? getMonthStartDate()
 				: request.getParameter("startDate");
 		String endDate = request.getParameter("endDate") == null ? getMonthEndDate() : request.getParameter("endDate");
-		
 		Cookie ck[]=request.getCookies();  
 		String uId = ck[0].getValue();
 		int userId = Integer.valueOf(uId);

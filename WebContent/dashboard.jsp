@@ -29,7 +29,6 @@ String expenses = (String)expense;
 <% Cookie ck[]=request.getCookies();  
 String uId = ck[0].getValue();
 int userId = Integer.valueOf(uId);
-System.out.print(userId);
 %>
 
 <div id="chartContainer" style="height: 370px; margin-left:200px;margin-right:  200px"></div>
