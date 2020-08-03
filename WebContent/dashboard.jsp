@@ -26,10 +26,10 @@ String expenses = (String)expense;
 <body>
 <script type="text/javascript" src="js/dashboard.js"></script>
 
-<% String uId = String.valueOf(request.getAttribute("currentSessionUser"));
+<% Cookie ck[]=request.getCookies();  
+String uId = ck[0].getValue();
 int userId = Integer.valueOf(uId);
-Cookie ck=new Cookie("userId",uId);  
-response.addCookie(ck);
+System.out.print(userId);
 %>
 
 <div id="chartContainer" style="height: 370px; margin-left:200px;margin-right:  200px"></div>

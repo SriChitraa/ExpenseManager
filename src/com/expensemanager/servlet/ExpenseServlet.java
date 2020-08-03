@@ -53,8 +53,7 @@ public class ExpenseServlet extends HttpServlet {
 		Cookie ck[]=request.getCookies();  
 		String uId = ck[0].getValue();
 		int userId = Integer.valueOf(uId);
-		System.out.print(userId);
-
+		
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
 			ArrayList<Expense> expenses = expenseDS.getExpenses(userId, category, startDate, endDate);
@@ -96,8 +95,6 @@ public class ExpenseServlet extends HttpServlet {
 		Cookie ck[]=request.getCookies();  
 		String uId = ck[0].getValue();
 		int userId = Integer.valueOf(uId);
-		System.out.print(userId);
-
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
 		String category = request.getParameter("category");

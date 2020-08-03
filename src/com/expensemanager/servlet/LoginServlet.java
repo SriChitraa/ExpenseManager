@@ -3,6 +3,7 @@ package com.expensemanager.servlet;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,7 +44,11 @@ public class LoginServlet extends HttpServlet {
 		User user = loginDS.getUser(uname);
 		int userId = user.getId();
 		String userPassword = user.getPassword();
-		request.setAttribute("currentSessionUser", userId);
+		
+		String uId = String.valueOf(userId);		 
+		Cookie ck=new Cookie("userId",uId);
+		System.out.print(userId);
+		response.addCookie(ck);
 				
 		if (password.equals(userPassword)) {
 			try {
