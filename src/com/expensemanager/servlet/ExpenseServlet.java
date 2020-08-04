@@ -11,11 +11,11 @@ import java.util.Date;
 import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.expensemanager.constant.Constants;
 import com.expensemanager.datastore.ExpenseDS;
 import com.expensemanager.model.Expense;
 import com.google.gson.Gson;
@@ -49,10 +49,10 @@ public class ExpenseServlet extends HttpServlet {
 		String startDate = request.getParameter("startDate") == null ? getMonthStartDate()
 				: request.getParameter("startDate");
 		String endDate = request.getParameter("endDate") == null ? getMonthEndDate() : request.getParameter("endDate");
-		Cookie ck[]=request.getCookies();  
-		String uId = ck[0].getValue();
+		Constants constant = new Constants();
+		String uId = constant.getUserId(request);
 		int userId = Integer.valueOf(uId);
-		
+				
 		try {
 			ExpenseDS expenseDS = new ExpenseDS();
 			ArrayList<Expense> expenses = expenseDS.getExpenses(userId, category, startDate, endDate);
@@ -91,9 +91,10 @@ public class ExpenseServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Cookie ck[]=request.getCookies();  
-		String uId = ck[0].getValue();
+		Constants constant = new Constants();
+		String uId = constant.getUserId(request);
 		int userId = Integer.valueOf(uId);
+		
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
 		String category = request.getParameter("category");

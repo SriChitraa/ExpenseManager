@@ -3,6 +3,7 @@
 <%@page import="com.expensemanager.model.Expense"%>
 <%@page import="com.expensemanager.datastore.LoginDS"%>
 <%@page import="com.expensemanager.model.User"%>
+<%@page import="com.expensemanager.constant.Constants"%>
 <%@page import="java.util.*"%>   
 <%@ page import="com.google.gson.Gson"%>
 <%@ page import="com.google.gson.JsonObject"%>  
@@ -26,8 +27,8 @@ String expenses = (String)expense;
 <body>
 <script type="text/javascript" src="js/dashboard.js"></script>
 
-<% Cookie ck[]=request.getCookies();  
-String uId = ck[0].getValue();
+<%Constants constant = new Constants();
+String uId = constant.getUserId(request);
 int userId = Integer.valueOf(uId);
 %>
 

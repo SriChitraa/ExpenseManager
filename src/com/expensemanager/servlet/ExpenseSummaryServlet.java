@@ -4,14 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import com.expensemanager.constant.Constants;
 import com.expensemanager.datastore.ExpenseDS;
 import com.expensemanager.model.Expense;
 import com.expensemanager.model.dto.ExpenseDTO;
@@ -36,8 +34,8 @@ public class ExpenseSummaryServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Cookie ck[]=request.getCookies();  
-		String uId = ck[0].getValue();
+		Constants constant = new Constants();
+		String uId = constant.getUserId(request);
 		int userId = Integer.valueOf(uId);
 		
 		try {
@@ -53,6 +51,8 @@ public class ExpenseSummaryServlet extends HttpServlet {
 			e.printStackTrace();
 		}	
 	}
+
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	

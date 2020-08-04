@@ -29,13 +29,9 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+		
+		}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String uname = request.getParameter("username");
@@ -43,11 +39,9 @@ public class LoginServlet extends HttpServlet {
 		LoginDS loginDS = new LoginDS();
 		User user = loginDS.getUser(uname);
 		int userId = user.getId();
-		String userPassword = user.getPassword();
-		
+		String userPassword = user.getPassword();		
 		String uId = String.valueOf(userId);		 
-		Cookie ck=new Cookie(COOKIE_USER_ID,uId);
-	
+		Cookie ck=new Cookie(COOKIE_USER_ID,uId);			
 		response.addCookie(ck);
 				
 		if (password.equals(userPassword)) {
